@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5.brush@1.1.0/dist/p5.brush.min.js"></script>
+</head>
+<body>
+<div id="p5c"></div>
+<script>
+// Multiple instances test
+let p1 = new p5((p) => {
+    p.setup = () => {
+        p.createCanvas(200, 200, p.WEBGL);
+        brush.instance(p);
+        p.background(200);
+        brush.set("HB", "red", 1);
+        brush.line(-50, -50, 50, 50);
+    }
+}, 'p5c');
+
+setTimeout(() => {
+    p1.remove();
+    let p2 = new p5((p) => {
+        p.setup = () => {
+            p.createCanvas(200, 200, p.WEBGL);
+            brush.instance(p);
+            p.background(100);
+            brush.set("HB", "blue", 1);
+            brush.line(-50, -50, 50, 50);
+        }
+    }, 'p5c');
+}, 500);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p5.brush Motion Design Studio</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- p5.js and p5.brush -->
+    <!-- Using p5.js 1.9.0 as recommended by p5.brush docs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5.brush@1.1.0/dist/p5.brush.min.js"></script>
+
+    <!-- FFmpeg.wasm -->
+    <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.7/dist/umd/ffmpeg.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/util@0.12.1/dist/umd/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.4/dist/umd/ffmpeg-core.js"></script>
+
+
+</head>
+<body>
+    <div id="app-container">
+        <!-- Sidebar Controls -->
+        <aside id="controls">
+            <h1>Motion Studio</h1>
+            <p class="subtitle">p5.brush + ffmpeg</p>
+
+            <div class="control-group">
+                <label for="example-select">Select Example:</label>
+                <select id="example-select">
+                    <!-- Populated by JS -->
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="aspect-ratio">Aspect Ratio:</label>
+                <select id="aspect-ratio">
+                    <option value="16:9">16:9 (1920x1080)</option>
+                    <option value="9:16">9:16 (1080x1920)</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="duration">Duration (frames):</label>
+                <input type="number" id="duration" value="120" min="10" max="600">
+            </div>
+
+            <button id="render-btn" class="primary-btn">Render MP4</button>
+
+            <div id="status" class="status-box">Ready.</div>
+
+            <div class="color-swatches">
+                <div class="swatch" style="background: #0A0F29;" title="Mid Navy"></div>
+                <div class="swatch" style="background: #FF6B6B;" title="Coral"></div>
+            </div>
+        </aside>
+
+        <!-- Main Canvas Area -->
+        <main id="canvas-container">
+            <!-- p5 instance goes here -->
+            <div id="p5-container"></div>
+        </main>
+    </div>
+
+    <!-- Application Logic -->
+    <script type="module" src="js/examples.js"></script>
+    <script type="module" src="js/video_exporter.js"></script>
+    <script type="module" src="js/sketch.js"></script>
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

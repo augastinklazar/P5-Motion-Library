@@ -1,0 +1,145 @@
+:root {
+    --bg-navy: #0A0F29;
+    --fg-coral: #FF6B6B;
+    --panel-bg: #11183B;
+    --text-light: #E0E4F5;
+    --border-color: #2A3158;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-navy);
+    color: var(--text-light);
+    height: 100vh;
+    overflow: hidden;
+}
+
+#app-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+#controls {
+    width: 300px;
+    background-color: var(--panel-bg);
+    border-right: 1px solid var(--border-color);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 10;
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: var(--fg-coral);
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    color: #8B94B8;
+    margin-bottom: 12px;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+select, input {
+    width: 100%;
+    padding: 10px;
+    background: var(--bg-navy);
+    border: 1px solid var(--border-color);
+    color: var(--text-light);
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+}
+
+select:focus, input:focus {
+    border-color: var(--fg-coral);
+}
+
+.primary-btn {
+    background-color: var(--fg-coral);
+    color: var(--bg-navy);
+    border: none;
+    padding: 14px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    margin-top: 10px;
+}
+
+.primary-btn:hover {
+    background-color: #ff8585;
+}
+
+.primary-btn:active {
+    transform: translateY(2px);
+}
+
+.primary-btn:disabled {
+    background-color: #666;
+    color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.status-box {
+    margin-top: auto;
+    padding: 12px;
+    background: var(--bg-navy);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    word-break: break-all;
+    min-height: 60px;
+}
+
+.color-swatches {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.swatch {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+#canvas-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: radial-gradient(circle at center, #1A224A 0%, var(--bg-navy) 100%);
+    overflow: auto;
+}
+
+#p5-container {
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    /* Transform scale will be applied via JS to fit preview in window */
+    transform-origin: center center;
+    background-color: white; /* default backdrop */
+}
